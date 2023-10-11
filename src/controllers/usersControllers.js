@@ -41,9 +41,6 @@ class usersControllers {
             };
 
             const checkEmailUsersExists = await database.get("SELECT * FROM users WHERE email = (?)", [email])
-           
-            console.log(user);
-            console.log(checkEmailUsersExists);
 
             if(checkEmailUsersExists && checkEmailUsersExists.id !== user.id){
 
@@ -70,7 +67,7 @@ class usersControllers {
             ]
         );
 
-            return response.json("atualizado com sucesso");
+            return response.json("alterado com sucesso");
     }
 
 };
