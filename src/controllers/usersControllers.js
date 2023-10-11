@@ -1,3 +1,4 @@
+const appError = require("../utils/appError");
 const sqliteConnection = require("../database/sqlite/index");
 const { hash } = require("bcryptjs");
 
@@ -35,10 +36,6 @@ class usersControllers {
             const database = await sqliteConnection();
 
             const user = await database.get("SELECT * FROM users WHERE id = (?)", [id]);
-
-            if(!user){
-                console.log("usuario não encontrado");
-            };
 
             const checkEmailUsersExists = await database.get("SELECT * FROM users WHERE email = (?)", [email])
 
